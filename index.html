@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="./css/style.css">
+
+     <title>Spotify-Your Favourite Music PLatform</title>
+</head>
+
+<body>
+     <nav>
+          <div id="more-op">
+               <img src="./logo/option.png" alt="">
+          </div>
+          <div id="main-logo">
+               <img src="./logo/spotify-logo.png" alt="logo.png" srcset="">
+               <div id="logo-name">Spotify&#8482;</div>
+          </div>
+          <div id="main-menu">
+               <ul>
+                    <li class="active"><a href="/">
+                              <div class="menu-op">
+                                   <img src="./logo/home.png" class="menu-logo" alt="">
+                                   <div class="option">Home</div>
+                              </div>
+                         </a>
+                    </li>
+                    <li><a href="/">
+                              <div class="menu-op">
+                                   <img src="./logo/magnifying.png" class="menu-logo" alt="">
+                                   <div class="option">Search</div>
+                              </div>
+                         </a>
+                    </li>
+                    <li><a href="/">
+                              <div class="menu-op">
+                                   <img src="./logo/library.png" class="menu-logo" alt="">
+                                   <div class="option">Your Library</div>
+                              </div>
+                         </a>
+                    </li>
+                    <hr>
+                    <li><a href="/">
+                              <div class="menu-op">
+                                   <img src="./logo/tabs.png" class="menu-logo" alt="">
+                                   <div class="option">Create Playlist</div>
+                              </div>
+                         </a></li>
+                    <li><a href="/">
+                              <div class="menu-op">
+                                   <img src="./logo/love.png" class="menu-logo" alt="">
+                                   <div class="option">Liked Songs</div>
+                              </div>
+                         </a>
+                    </li>
+               </ul>
+          </div>
+     </nav>
+     <div class="account">
+          <div class="sub-acc">
+               <div class="first">
+                    UPGRADE
+               </div>
+               <div class="second">
+                    <img src="./logo/user.png" alt="">
+                    <div>Login</div>
+               </div>
+          </div>
+     </div>
+     <div class="footer">
+          <div class="section1">
+               <img src="./logo/music.gif" id="gif" alt="">
+               <img id ="curr-img"  src="./song-image/something.jpg" alt="">
+               <div  class="song">
+                    <div id="curr-name" class="name">Something Just Like This</div>
+                    <div id="curr-singer" class="singer">The Chainsmokers , Coldplay</div>
+               </div>
+          </div>
+          <div class="progress-bar">
+               <div class="icons">
+                    <img src="./logo/repeat.png" id="repeat"class="ico" alt="">
+                    <img src="./logo/previous.png" id="previous" class="ico" alt="">
+                    <i class="far fa-2x fa-play-circle" id ="master-play"></i>
+                    <img src="./logo/next.png" id="next" class="ico" alt="">
+                    <img src="./logo/shuffle.png" class="ico" alt="">
+               </div>
+               <div class="song-bar">
+                    <div id="actual" class="play-time">05:31</div>
+                    <input type="range" name="range" id="myBar" value='0' min="0" max="100">
+                    <div id="total" class="play-time">05:31</div>
+                    <div id="selector">
+                         <div class="selectBtn"></div>
+                    </div>
+               </div>
+          </div>
+          <div class="section3">
+               <img src="./logo/queue.png" alt="">
+               <img src="./logo/lyrics.png" alt="">
+               <i class="fas fa-volume-up" id="volume-btn"></i>
+               <input type="range" name="range" id="myVolume" value= ".80" step= "0.05" min="0" max="1" >
+          </div>
+     </div>
+     <div class="container">
+          <div class="main-content">
+               <div class="demo-img">
+                    <img src="./logo/party-people-1644798.jpg" alt="img">
+               </div>
+               <div id="heading">My Playlist</div>
+               <div class="playlist">
+                    <hr id="line">
+                    <div class="col1">
+                         <div class="box1"># TITLE</div>
+                         <div class="box1">
+                              <div class="number">1</div>
+                              <div class="song-img">
+                                   <img src="./song-image/2002.jpg" alt="">
+                              </div>
+                              <div class="song">
+                                   <div class="name">2002</div>
+                                   <div class="singer">Annie Marie</div>
+                              </div>
+                         </div>
+                         <div class="box1">
+                              <div class="number">2</div>
+                              <div class="song-img">
+                                   <img src="./song-image/chalo-chalein.jpg" alt="">
+                              </div>
+                              <div class="song">
+                                   <div class="name">Chalo chalein</div>
+                                   <div class="singer">Ritivz</div>
+                              </div>
+                         </div>
+                         <div class="box1">
+                              <div class="number">3</div>
+                              <div class="song-img">
+                                   <img src="./song-image/liggi.jpg" alt="">
+                              </div>
+                              <div class="song">
+                                   <div class="name">Liggi</div>
+                                   <div class="singer">Ritivz</div>
+                              </div>
+                         </div>
+                         <div class="box1">
+                              <div class="number">4</div>
+                              <div class="song-img">
+                                   <img src="./song-image/sage.jpg" alt="">
+                              </div>
+                              <div class="song">
+                                   <div class="name">Sage</div>
+                                   <div class="singer">Ritivz</div>
+                              </div>
+                         </div>
+                         <div class="box1">
+                              <div class="number">5</div>
+                              <div class="song-img">
+                                   <img src="./song-image/man-bhariya.png" alt="">
+                              </div>
+                              <div class="song">
+                                   <div class="name">Man Bharryya 2.0</div>
+                                   <div class="singer">B Praak</div>
+                              </div>
+                         </div>
+                         <div class="box1">
+                              <div class="number">6</div>
+                              <div class="song-img">
+                                   <img src="./song-image/raatan-lambiyan.jpg" alt="">
+                              </div>
+                              <div class="song">
+                                   <div class="name">Raataan Lambiya</div>
+                                   <div class="singer">Jubin Nautiyal , Tanishk Bagchi</div>
+                              </div>
+                         </div>
+                         <div class="box1">
+                              <div class="number">7</div>
+                              <div class="song-img">
+                                   <img src="./song-image/something.jpg" alt="">
+                              </div>
+                              <div class="song">
+                                   <div class="name">Something Just Like This</div>
+                                   <div class="singer">The Chainsmokers , Coldplay</div>
+                              </div>
+                         </div>
+                         <div class="box1">
+                              <div class="number">8</div>
+                              <div class="song-img">
+                                   <img src="./song-image/udd gaye.jpg" alt="">
+                              </div>
+                              <div class="song">
+                                   <div class="name">Udd Gaye</div>
+                                   <div class="singer">Ritivz</div>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="col2">
+                         <div class="box2">PLAYS</div>
+                         <div class="box2">6,700,800</div>
+                         <div class="box2">6,700,800</div>
+                         <div class="box2">6,700,800</div>
+                         <div class="box2">6,700,800</div>
+                         <div class="box2">6,700,800</div>
+                         <div class="box2">6,700,800</div>
+                         <div class="box2">6,700,800</div>
+                         <div class="box2">700,800</div>
+                    </div>
+                    <div class="col3">
+                         <div class="box3">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                   fill="none" stroke="white" sttroke-width="2" stroke-linecap="round"
+                                   stroke-linejoin="round" class="feather feather-clock">
+                                   <circle cx="12" cy="12" r="10"></circle>
+                                   <polyline points="12 6 12 12 16 14"></polyline>
+                              </svg>
+                         </div>
+                         <div id ="s0" class="duration box3">04:30</div>
+                         <div id ="s1" class="duration box3">04:30</div>
+                         <div id ="s2" class="duration box3">04:30</div>
+                         <div id ="s3" class="duration box3">04:30</div>
+                         <div id ="s4" class="duration box3">04:30</div>
+                         <div id ="s5" class="duration box3">04:30</div>
+                         <div id ="s6" class="duration box3">04:30</div>
+                         <div id ="s7" class="duration box3">04:30</div>
+                    </div>
+                    <div class="col4">
+                         <div class="box4">PLAY/PAUSE</div>
+                         <div class="box4">
+                              <i  id ="0" class="songItem-play fas fa-play"></i>
+                         </div>
+                         <div class="box4">
+                              <i  id ="1" class="songItem-play fas fa-play"></i>
+                         </div>
+                         <div class="box4">
+                              <i  id ="2" class="songItem-play fas fa-play"></i>
+                         </div>
+                         <div class="box4">
+                              <i  id ="3" class="songItem-play fas fa-play"></i>
+                         </div>
+                         <div class="box4">
+                              <i  id ="4" class="songItem-play fas fa-play"></i>
+                         </div>
+                         <div class="box4">
+                              <i  id ="5" class="songItem-play fas fa-play"></i>
+                         </div>
+                         <div class="box4">
+                              <i  id ="6" class="songItem-play fas fa-play"></i>
+                         </div>
+                         <div class="box4">
+                              <i id ="7" class="songItem-play fas fa-play"></i>
+                         </div>
+                         </div>
+
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <script src="./js/script.js"></script>
+     <script src="https://kit.fontawesome.com/5f61b1326c.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
