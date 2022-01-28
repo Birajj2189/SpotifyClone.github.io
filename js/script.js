@@ -20,11 +20,14 @@ let myProgressBar = document.getElementById('myBar');
 let volumeBar = document.getElementById('myVolume');
 let repeat = 0;
 
-// Array.from(document.getElementsByClassName('duration')).forEach((element)=>{
-//      index = parseInt(element.target.id.slice(1,2));
+Array.from(document.getElementsByClassName('duration')).forEach((element)=>{
+     element.addEventListener('click',(e)=>{
+          index = parseInt(element.target.id);
+          console.log(index);
+          
+     })
 
-// })
-
+})
 
 // Handle all song play buttons 
 const makeAllPlay = ()=>{
