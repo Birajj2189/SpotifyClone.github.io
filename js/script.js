@@ -21,13 +21,12 @@ let volumeBar = document.getElementById('myVolume');
 let repeat = 0;
 let shuffle = 0;
 let currentTime = audioElement.currentTime;
-Array.from(document.getElementsByClassName('duration')).forEach((element)=>{
-     element.addEventListener('click',(e)=>{
-          index = parseInt(element.target.id);
-          console.log(index);
-          
-     })
 
+//setting all the durations in the playlist
+Array.from(document.getElementsByClassName('duration')).forEach((element)=>{
+          index = parseInt(element.id.slice(1,2));
+          console.log(index);
+          element.innerText = songs[index].duration;
 })
 
 // Handle all song play buttons 
@@ -166,6 +165,17 @@ document.getElementById('actual').innerText = audioElement.currentTime;
 audioElement.addEventListener('timeupdate', ()=>{ 
      // Update Seekbar
      myProgressBar.value  = ((audioElement.currentTime/audioElement.duration)* 100); 
+
+     //update current time
+     currTime = Math.floor(audioElement.currentTime);
+     sec = currTime%60;
+     min = Math.floor(currTime/60);
+     if (min<10)
+          min = "0"+min;
+     if (sec<10)
+          sec = "0"+sec;
+     document.getElementById('actual').innerText = `${min}:${sec}`;
+
      
 })
 
@@ -296,3 +306,4 @@ document.getElementById('shuffle').addEventListener('click',()=>{
      }
 })
      
+

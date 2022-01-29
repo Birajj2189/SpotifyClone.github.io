@@ -267,6 +267,11 @@ hr{
      width: 20%;
      height: 50%;
 }
+
+#myVolume{
+     width: 40%;
+     height: 5px;
+}
 .section3 img{
      cursor: pointer;   
      width: 1rem;
