@@ -19,7 +19,8 @@ let masterPlay = document.getElementById('master-play');
 let myProgressBar = document.getElementById('myBar');
 let volumeBar = document.getElementById('myVolume');
 let repeat = 0;
-
+let shuffle = 0;
+let currentTime = audioElement.currentTime;
 Array.from(document.getElementsByClassName('duration')).forEach((element)=>{
      element.addEventListener('click',(e)=>{
           index = parseInt(element.target.id);
@@ -36,20 +37,46 @@ const makeAllPlay = ()=>{
           element.classList.remove('green');
      })
 }
+const removeAllPause = ()=>{
+     Array.from(document.getElementsByClassName('songItem-play')).forEach((element)=>{
+          element.classList.remove('pause');
+     })
+}
+
 Array.from(document.getElementsByClassName('songItem-play')).forEach((element)=>{
      element.addEventListener('click',(e)=>{
           songIndex = parseInt(e.target.id); 
-          audioElement.src = songs[songIndex].filePath;
-          console.log("song played");
-          audioElement.currentTime = 0;
-          audioElement.play(); 
-          makeAllPlay();
-          gif.style.opacity = 1;
-          e.target.classList.remove('fa-play');
-          e.target.classList.add('fa-pause','green');
-          masterPlay.classList.remove('fa-play-circle');
-          masterPlay.classList.add('fa-pause-circle');
-          updateCurrentSection();
+          if(e.target.classList.contains('green'))
+          {
+               e.target.classList.add('fa-play','paused');
+               e.target.classList.remove('fa-pause','green');
+               masterPlay.classList.add('fa-play-circle');
+               masterPlay.classList.remove('fa-pause-circle');
+               audioElement.pause(); 
+               gif.style.opacity = 0;
+          }
+          else
+          {
+               if(e.target.classList.contains('paused'))
+               {
+                    console.log('Playing paused song')
+                    removeAllPause();
+               }
+               else
+               {
+                    audioElement.currentTime = 0;
+                    audioElement.src = songs[songIndex].filePath;
+                    removeAllPause();
+               }
+               audioElement.play(); 
+               makeAllPlay();
+               gif.style.opacity = 1;
+               e.target.classList.remove('fa-play');
+               e.target.classList.add('fa-pause','green');
+               masterPlay.classList.remove('fa-play-circle');
+               masterPlay.classList.add('fa-pause-circle');
+               updateCurrentSection();
+          }
      })
 })
 
@@ -61,6 +88,12 @@ const playbutton = (songIndex) =>{
 }
 
 // handle play-pause click
+
+const addPause = ()=>{
+     document.getElementById(`${songIndex}`).classList.add('paused');
+     console.log(` paused ${songIndex}` );
+}
+
 masterPlay.addEventListener('click',()=>{
      if(audioElement.paused || audioElement.currentTime<=0){
           console.log("Playing song");
@@ -78,6 +111,7 @@ masterPlay.addEventListener('click',()=>{
           masterPlay.classList.add('fa-play-circle');
           masterPlay.classList.remove('fa-pause-circle');
           makeAllPlay();
+          addPause();
      }     
 })  
 
@@ -164,40 +198,101 @@ volumeBar.addEventListener('change',()=>{
      }
 })
 
-// change volume button on volume change
 
 
 // Play next song on completion
 audioElement.addEventListener('ended',()=>{
-     songIndex+=1;
-     if(songIndex>7)
+     
+     if(repeat == 1)
      {
-          songIndex = 0;
+          console.log("Playing song");
+          console.log(songIndex);
+          audioElement.src = songs[songIndex].filePath;
+          audioElement.currentTime = 0;
+          audioElement.play(); 
+          masterPlay.classList.remove('fa-play-circle');
+          masterPlay.classList.add('fa-pause-circle');
+          playbutton(songIndex);
+          updateCurrentSection();
+          
      }
-     console.log(songIndex);
-     console.log("Playing song");
-     console.log(songIndex);
-     audioElement.src = songs[songIndex].filePath;
-     audioElement.currentTime = 0;
-     audioElement.play(); 
-     masterPlay.classList.remove('fa-play-circle');
-     masterPlay.classList.add('fa-pause-circle');
-     playbutton(songIndex);
-     updateCurrentSection();
-
-})
-
-document.getElementById('repeat').addEventListener('onclick',()=>{
-     if(repeat == 0)
+     else if(shuffle == 1)
      {
-          repeat = 1;
-          console.log(green);
-          document.getElementById('repeat').classList.add('green');
+          songIndex = Math.floor(Math.random()*8);
+          console.log("Playing song");
+          console.log(songIndex);
+          audioElement.src = songs[songIndex].filePath;
+          audioElement.currentTime = 0;
+          audioElement.play(); 
+          masterPlay.classList.remove('fa-play-circle');
+          masterPlay.classList.add('fa-pause-circle');
+          playbutton(songIndex);
+          updateCurrentSection();
+          
      }
      else
      {
-          console.log(white);
+          songIndex+=1;
+          if(songIndex>7)
+          {
+               songIndex = 0;
+          }
+          console.log(songIndex);
+          console.log("Playing song");
+          audioElement.src = songs[songIndex].filePath;
+          audioElement.currentTime = 0;
+          audioElement.play(); 
+          masterPlay.classList.remove('fa-play-circle');
+          masterPlay.classList.add('fa-pause-circle');
+          playbutton(songIndex);
+          updateCurrentSection();
+     }
+})
+
+// handle repeat button
+document.getElementById('repeat').addEventListener('click',()=>{
+     if(repeat==0 && shuffle==1)
+     {
+          repeat = 1;
+          shuffle = 0;
+          console.log("green");
+          document.getElementById('repeat').classList.add('green');
+          document.getElementById('shuffle').classList.remove('green');
+     }
+     else if(repeat==0)
+     {
+          repeat = 1;
+          console.log("green");
+          document.getElementById('repeat').classList.add('green');
+     }
+     else{
+          console.log("white");
           repeat = 0;
           document.getElementById('repeat').classList.remove('green');
      }
 })
+     
+// handle shuffle button
+document.getElementById('shuffle').addEventListener('click',()=>{
+     if(shuffle==0 && repeat==1)
+     {
+          shuffle = 1;
+          repeat = 0;
+          console.log("green");
+          document.getElementById('shuffle').classList.add('green');
+          document.getElementById('repeat').classList.remove('green');
+     }
+     else if(shuffle==0)
+     {
+          shuffle = 1;
+          console.log("green");
+          document.getElementById('shuffle').classList.add('green');
+          document.getElementById('repeat').classList.remove('green');
+     }
+     else{
+          console.log("white");
+          shuffle = 0;
+          document.getElementById('shuffle').classList.remove('green');
+     }
+})
+     
