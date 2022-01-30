@@ -4,14 +4,14 @@ console.log("Welcome to Spotify");
 // Initiate the variables
 let songIndex = 0;
 let songs = [
-     {songName: "2002",singer:"Annie Marrie",filePath : "Songs/2002.mp3",coverPath:"song-image/2002.jpg",duration:"03.14" },
-     {songName: "Chalo chalein",singer:"Ritivz",filePath : "Songs/Chalo-Chalein.mp3",coverPath:"song-image/chalo-chalein.jpg",duration:"03.04" },
-     {songName: "Liggi",singer:"Ritivz",filePath : "Songs/Liggi.mp3",coverPath:"song-image/liggi.jpg",duration:"03.01" },
-     {songName: "Sage",singer:"Ritivz",filePath : "Songs/Sage.mp3",coverPath:"song-image/sage.jpg",duration:"04.04" },
-     {songName: "Man Bhariya 2.0",singer:"B Praak",filePath : "Songs/Mann-Bharryaa-2.0.mp3",coverPath:"song-image/man-bhariya.png",duration:"04.26" },
-     {songName: "Raatan Lambiya",singer:"Jubin Nautiyal , Tansihk Bagchi",filePath : "Songs/Raataan-Lambiyan.mp3",coverPath:"song-image/raatan-lambiyan.jpg" ,duration:"03.50"},
-     {songName: "Something just Like This",singer:"The Chainsmokers, Coldplay",filePath : "Songs/Something.mp3",coverPath:"song-image/something.jpg",duration:"04.07" },
-     {songName: "Udd Gaye",singer:"Ritivz",filePath : "Songs/Udd-Gaye.mp3",coverPath:"song-image/udd gaye.jpg",duration:"03.00" },
+     {songName: "2002",singer:"Annie Marrie",filePath : "Songs/2002.mp3",coverPath:"song-image/2002.jpg",duration:"03:14" },
+     {songName: "Chalo chalein",singer:"Ritivz",filePath : "Songs/Chalo-Chalein.mp3",coverPath:"song-image/chalo-chalein.jpg",duration:"03:04" },
+     {songName: "Liggi",singer:"Ritivz",filePath : "Songs/Liggi.mp3",coverPath:"song-image/liggi.jpg",duration:"03:01" },
+     {songName: "Sage",singer:"Ritivz",filePath : "Songs/Sage.mp3",coverPath:"song-image/sage.jpg",duration:"04:04" },
+     {songName: "Man Bhariya 2.0",singer:"B Praak",filePath : "Songs/Mann-Bharryaa-2.0.mp3",coverPath:"song-image/man-bhariya.png",duration:"04:26" },
+     {songName: "Raatan Lambiya",singer:"Jubin Nautiyal , Tansihk Bagchi",filePath : "Songs/Raataan-Lambiyan.mp3",coverPath:"song-image/raatan-lambiyan.jpg" ,duration:"03:50"},
+     {songName: "Something just Like This",singer:"The Chainsmokers, Coldplay",filePath : "Songs/Something.mp3",coverPath:"song-image/something.jpg",duration:"04:07" },
+     {songName: "Udd Gaye",singer:"Ritivz",filePath : "Songs/Udd-Gaye.mp3",coverPath:"song-image/udd gaye.jpg",duration:"03:00" },
 ]
 let gif =  document.getElementById('gif');
 let audioElement = new Audio('Songs/2002.mp3');
@@ -25,7 +25,6 @@ let currentTime = audioElement.currentTime;
 //setting all the durations in the playlist
 Array.from(document.getElementsByClassName('duration')).forEach((element)=>{
           index = parseInt(element.id.slice(1,2));
-          console.log(index);
           element.innerText = songs[index].duration;
 })
 
@@ -58,7 +57,6 @@ Array.from(document.getElementsByClassName('songItem-play')).forEach((element)=>
           {
                if(e.target.classList.contains('paused'))
                {
-                    console.log('Playing paused song')
                     removeAllPause();
                }
                else
@@ -105,7 +103,6 @@ masterPlay.addEventListener('click',()=>{
      }     
      else{
           gif.style.opacity = 0;
-          console.log("song Paused");
           audioElement.pause();
           masterPlay.classList.add('fa-play-circle');
           masterPlay.classList.remove('fa-pause-circle');
@@ -121,8 +118,6 @@ document.getElementById('previous').addEventListener('click',()=>{
      {
           songIndex = 7;
      }
-     console.log("Playing song");
-     console.log(songIndex);
      audioElement.src = songs[songIndex].filePath;
      audioElement.currentTime = 0;
      audioElement.play(); 
@@ -139,8 +134,6 @@ document.getElementById('next').addEventListener('click',()=>{
      {
           songIndex = 0;
      }
-     console.log("Playing song");
-     console.log(songIndex);
      audioElement.src = songs[songIndex].filePath;
      audioElement.currentTime = 0;
      audioElement.play(); 
@@ -175,8 +168,6 @@ audioElement.addEventListener('timeupdate', ()=>{
      if (sec<10)
           sec = "0"+sec;
      document.getElementById('actual').innerText = `${min}:${sec}`;
-
-     
 })
 
 myProgressBar.addEventListener('change',()=>{
@@ -186,7 +177,6 @@ myProgressBar.addEventListener('change',()=>{
 // change volume 
 volumeBar.addEventListener('change',()=>{
      audioElement.volume = volumeBar.value;
-     console.log(volumeBar.value);
 
      if(volumeBar.value <= 0)
      {
@@ -215,8 +205,6 @@ audioElement.addEventListener('ended',()=>{
      
      if(repeat == 1)
      {
-          console.log("Playing song");
-          console.log(songIndex);
           audioElement.src = songs[songIndex].filePath;
           audioElement.currentTime = 0;
           audioElement.play(); 
@@ -229,8 +217,6 @@ audioElement.addEventListener('ended',()=>{
      else if(shuffle == 1)
      {
           songIndex = Math.floor(Math.random()*8);
-          console.log("Playing song");
-          console.log(songIndex);
           audioElement.src = songs[songIndex].filePath;
           audioElement.currentTime = 0;
           audioElement.play(); 
@@ -247,8 +233,6 @@ audioElement.addEventListener('ended',()=>{
           {
                songIndex = 0;
           }
-          console.log(songIndex);
-          console.log("Playing song");
           audioElement.src = songs[songIndex].filePath;
           audioElement.currentTime = 0;
           audioElement.play(); 
@@ -265,18 +249,15 @@ document.getElementById('repeat').addEventListener('click',()=>{
      {
           repeat = 1;
           shuffle = 0;
-          console.log("green");
           document.getElementById('repeat').classList.add('green');
           document.getElementById('shuffle').classList.remove('green');
      }
      else if(repeat==0)
      {
           repeat = 1;
-          console.log("green");
           document.getElementById('repeat').classList.add('green');
      }
      else{
-          console.log("white");
           repeat = 0;
           document.getElementById('repeat').classList.remove('green');
      }
@@ -288,22 +269,21 @@ document.getElementById('shuffle').addEventListener('click',()=>{
      {
           shuffle = 1;
           repeat = 0;
-          console.log("green");
           document.getElementById('shuffle').classList.add('green');
           document.getElementById('repeat').classList.remove('green');
      }
      else if(shuffle==0)
      {
           shuffle = 1;
-          console.log("green");
           document.getElementById('shuffle').classList.add('green');
           document.getElementById('repeat').classList.remove('green');
      }
      else{
-          console.log("white");
           shuffle = 0;
           document.getElementById('shuffle').classList.remove('green');
      }
 })
+
      
+const mediaQuery = window.matchMedia('(max-width:1023px');
 
