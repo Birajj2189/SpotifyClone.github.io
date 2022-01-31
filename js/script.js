@@ -285,5 +285,25 @@ document.getElementById('shuffle').addEventListener('click',()=>{
 })
 
      
-const mediaQuery = window.matchMedia('(max-width:1023px');
-
+const mediaQuery = window.matchMedia('(max-width:550px');
+     
+document.getElementById('op-btn').addEventListener('click',()=>{
+     if(mediaQuery.matches)
+     {
+          if(document.getElementById('op-btn').classList.contains('green'))
+          {
+               document.getElementById('dropdown-list').style.opacity = "0";
+               document.getElementById('dropdown-list').style.display = "none";
+               document.getElementById('dropdown-list').style.display = "hidden";
+               document.getElementById('op-btn').classList.add('fa-bars');
+               document.getElementById('op-btn').classList.remove('fa-times','green');
+          }
+          else{
+               document.getElementById('dropdown-list').style.opacity = "1";
+               document.getElementById('dropdown-list').style.visibility = "visible";
+               document.getElementById('dropdown-list').style.display = "block";
+               document.getElementById('op-btn').classList.add('fa-times','green');
+               document.getElementById('op-btn').classList.remove('fa-bars');
+          }
+     }
+})

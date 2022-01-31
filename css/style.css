@@ -84,6 +84,7 @@ ul {
 }
 #main-menu ul li a {
   text-decoration: none;
+  width: 100%;
 }
 .active {
   background-color: rgb(41, 41, 41);
@@ -482,13 +483,12 @@ i {
   #logo-name {
     font-size: 1.8rem;
   }
-
   .option {
     font-size: 0.8rem;
   }
 }
 
-@media (max-width: 1023px) {
+@media (min-width:551px) and (max-width: 1023px) {
   #logo-name {
     visibility: hidden;
     display: none;
@@ -521,6 +521,9 @@ i {
     transform-origin: 0 0;
     transform: rotate(45deg) translate(100%, 0%);
 }
+  .menu-op{
+    justify-content: center;
+  }
 .menu-op:hover .option {
      opacity: 1;
      pointer-events: all;
@@ -598,4 +601,136 @@ nav {
 .progress-bar {
      width: 50%;
 }
+}
+
+@media(max-width:550px){
+  .box1,
+  .box2,
+  .box3,
+  .box4 {
+     height: 6.5rem;
+  }
+  .title {
+     height: 6.5rem;
+  }
+  .volume-container:before {
+    content: "";
+    position: absolute;
+     width: 15px;
+     height: 15px;
+     background-color: rgba(0, 0, 0, 0.986);
+     top: 0;
+     left: -10px;
+     transform-origin: 0 0;
+     transform: rotate(45deg) translate(100%, -29%);
+    }
+    .volume-container {
+      position: relative;
+      transform: rotate(270deg) translate(78px, -65px);
+      width: 7rem;
+      padding: 1rem;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.986);
+      height: auto;
+      top: 0;
+      right: 0;
+      transition: opacity 0.3s;
+      transition-delay: 0.2s ;
+      opacity: 0;
+    }
+    
+    .volume:hover .volume-container{
+      opacity: 1;
+  }
+  #myVolume {
+    width: 6rem;
+  }
+  .volume {
+    width: 1rem;
+  }
+  #myVolume::before {
+     content: "";
+     position: relative;
+     background-color: rgba(0, 0, 0, 0.986);
+     width: inherit;
+     height: 10rem;
+    }
+    nav{
+      width: 100vw;
+      height: 10vh;
+    }
+    ul{
+      position: absolute;
+      top: 12vh;
+      width: 96vw;
+      background-color: rgba(0, 0, 0, 0.986);
+      padding: 1rem;
+      border-radius: 5px;
+      display: none; 
+      visibility: hidden; 
+      opacity: 0;
+    }
+    ul::before{
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: rgba(0, 0, 0, 0.986);
+      top: -17px;
+      left: 7px;
+      transform-origin: 0 0;
+      transform: rotate(45deg) translate(100%, -29%);
+    }
+    #more-op{
+      position: absolute;
+      top: 3vh;
+      left: 3vw;
+    }
+    #op-btn{
+      transition: all 0.3s;
+    }
+    .account
+    {
+      top:10vh;
+      padding: 0 0.5rem;
+    }
+    #main-logo{
+      height: 10vh;
+    }
+    #main-logo img{
+      width: 6vh;
+    }
+    .option{
+      width: 50vw;
+      font-size: 1rem;
+    }
+    .container{
+      height: 76vh;
+      top:10vh;
+    }
+    .main-content {
+      width: 100vw;
+      left: 0;
+      top:10vh;
+    }
+    #curr-name{
+      display: none;
+      visibility: hidden;
+    }
+    #curr-singer{
+      display: none;
+      visibility: hidden;
+    }
+    #gif{
+      width: 2rem;
+      height: 2rem;
+    }
+    .section1 img{
+      height: 3rem;
+      width: 2.5rem;
+    }
+    #heading{
+      font-size: 4rem;
+      padding:3rem 2rem ;
+    }
 }
