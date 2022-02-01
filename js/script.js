@@ -307,3 +307,17 @@ document.getElementById('op-btn').addEventListener('click',()=>{
           }
      }
 })
+
+document.getElementById('volume-btn').addEventListener('click',()=>{
+     if(document.getElementById('volume-btn').classList.contains('green'))
+     {
+          document.getElementById('vol-slider').style.opacity = "0";
+          document.getElementById('volume-btn').classList.remove('green')
+          document.getElementById('volume-btn').classList.add('off-white')
+     }
+     else{
+          document.getElementById('volume-btn').classList.add('green');
+          document.getElementById('volume-btn').classList.remove('off-white');
+          document.getElementById('vol-slider').style.opacity = "1";
+     }
+})

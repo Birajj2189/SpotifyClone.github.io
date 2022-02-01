@@ -450,7 +450,7 @@ i {
   justify-content: center;
   align-items: center;
 }
-#volume-btn {
+.off-white{
   color: #ababab;
 }
 
@@ -574,11 +574,7 @@ nav {
      transition: opacity 0.3s;
      transition-delay: 0.2s ;
      opacity: 0;
-}
-
-.volume:hover .volume-container{
-     opacity: 1;
-}
+    }    
 #myVolume {
     width: 6rem;
 }
@@ -685,6 +681,8 @@ nav {
       position: absolute;
       top: 3vh;
       left: 3vw;
+      width: auto;
+
     }
     #op-btn{
       transition: all 0.3s;
@@ -724,8 +722,10 @@ nav {
     #gif{
       width: 2rem;
       height: 2rem;
+      margin:0.2rem ;
     }
     .section1 img{
+      margin:0.2rem ;
       height: 3rem;
       width: 2.5rem;
     }
@@ -733,11 +733,13 @@ nav {
       font-size: 4rem;
       padding:3rem 2rem ;
     }
-}
-#op-btn{
-  -webkit-touch-callout: none;
-  user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-tap-highlight-color: transparent;
+    .section3 img{
+      margin: 0.2rem;
+    }
+    .section3 div{
+      margin: 0.2rem;
+    }
+    .icons{
+      width: 40%;
+    }
 }
