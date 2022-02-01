@@ -734,3 +734,9 @@ nav {
       padding:3rem 2rem ;
     }
 }
+#op-btn{
+  -webkit-touch-callout: none;
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
